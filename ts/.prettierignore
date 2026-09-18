@@ -1,0 +1,7 @@
+node_modules/**
+build/**
+dist/**
+jsdoc/**
+docs/**
+**/*.styl.d.ts
+grid-docs/**

@@ -1,0 +1,22 @@
+name:dkAppMenu
+finStackMobileMenu
+func
+overridable
+doc: "dkApp菜单声明"
+src:
+  () => do
+    [{
+      displayName: "我的领域",
+      appId: "",
+      isDivider: true,
+      order: -900
+    }, {
+      displayName: "DKApp",
+      appId: "dkApp",
+      icon: "icon-heart",
+      ui: "html",
+      order:-899,
+      action: "top.app.LoadApplication('/pod/dkAppExt/index.html', null, null, {app:'dkApp'});top.app.ToggleCollapse(true);"
+    }].toGrid
+  end
+---

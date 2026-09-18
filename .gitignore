@@ -1,0 +1,16 @@
+#############
+## General ##
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+################
+## Node Files ##
+
+# Artifacts
+/ts/build/
+dist/
+
+# Dependencies
+node_modules

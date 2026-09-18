@@ -1,0 +1,10 @@
+{
+	"scripts": {
+		"start": "npm start --prefix ./ts",
+		"build": "cd ts && npm run build && cd ..",
+		"install": "npm i --ignore-scripts && cd ts && npm i --ignore-scripts && cd ..",
+		"ci": "cd ts && npm ci && cd ..",
+		"pod": "fan build.fan",
+		"pre-commit": "cd ts && npx lint-staged && npm run check && npm run test &&  cd .."
+	}
+}

@@ -1,0 +1,55 @@
+{
+	"compilerOptions": {
+		// Do not output any compiled code (webpack handles output)
+		"noEmit": true,
+		// Target latest version of ECMAScript.
+		"target": "ESNext",
+		"module": "ESNext",
+		// Search under node_modules for non-relative imports.
+		"moduleResolution": "node",
+		// Process & infer types from .js files.
+		"allowJs": true,
+		// Enable strictest settings like strictNullChecks & noImplicitAny.
+		"strict": true,
+		// Disallow features that require cross-file information for emit.
+		"isolatedModules": true,
+		// // Import non-ES modules as default imports.
+		"esModuleInterop": true,
+		// Base directory to resolve non-absolute module names.
+		"baseUrl": ".",
+		// List of path mapping entries for module names to locations relative to the baseUrl
+		"paths": {
+			"@/*": ["src/*"],
+			"*": ["src/*", "src/types/*", "node_modules/*"]
+		},
+		// Dirs to look in for files without relative imports
+		"rootDirs": ["src", "node_modules"],
+		// Enable jsx support. Files w/ jsx must end in .tsx.
+		"jsx": "react",
+		// Enable decorators
+		"experimentalDecorators": true,
+
+		"types": ["jest","webpack-env"],
+		// interfaces and type .d.ts files in these directories will be available everywhere
+		"typeRoots": ["src/types", "src/declarations", "node_modules/@types"],
+		//	skip type checking of declaration files
+		"skipLibCheck": true,
+		//	check if there are un-used declerations
+		"noUnusedLocals": true /* Enable error reporting when a local variables aren't read. */,
+		"noUnusedParameters": true /* Raise an error when a function parameter isn't read */,
+		"noImplicitReturns": true /* Enable error reporting for codepaths that do not explicitly return in a function. */,
+		"noImplicitOverride": true /* Ensure overriding members in derived classes are marked with an override modifier. */,
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */
+	},
+
+	"files": [
+		"node_modules/@j2inn/react-config/globals.d.ts",
+		"node_modules/@j2inn/react-config/externals.d.ts"
+	],
+
+	"include": ["src/**/*", "test/**/*"],
+
+	"exclude": ["node_modules"]
+}
