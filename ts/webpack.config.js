@@ -97,7 +97,7 @@ const config = {
 	},
 	stats: 'minimal',
 	plugins: [
-		new HtmlWebpackPlugin({ template: './src/template.html' }),
+		new HtmlWebpackPlugin({ template: './src/index.html' }),
 		new DefinePlugin({ DEBUG: !prod, PRODUCTION: prod }),
 		new MomentLocalesPlugin(),
 		new LodashModuleReplacementPlugin({ paths: true, shorthands: true }),
