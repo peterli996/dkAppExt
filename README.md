@@ -1,5 +1,10 @@
 # **Description**
-Enter here the repo description.
+`dkAppExt` 是一个最小单元的 FIN hybrid extension（单个 pod），基于 `newHybridExt` 模板搭建，同时具备：
+
+- **后端 Fantom 骨架**（`fan/`）：`dkAppExt.fan` 扩展入口（生命周期 `onStart`/`onStop`）+ `dkAppLib.fan` Axon 函数库
+- **前端 React 骨架**（`ts/`）：React 18 + TypeScript + React Router + antd，构建后打包进同一个 pod
+
+用于快速验证 FIN 扩展开发的基本流程（Fantom 后端、Axon 函数、菜单注册、React 前端路由、pod 图标配置等），可以直接复制这份骨架去派生新的扩展。
 
 
 ## **Quick Guides**
