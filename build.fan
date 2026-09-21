@@ -36,6 +36,7 @@ class Build : BuildFinPod {
 
     srcDirs = [
       `fan/`,
+      `fan/observers/`,
       `test/`
     ]
     resDirs = [
