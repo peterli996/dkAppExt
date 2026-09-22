@@ -32,17 +32,21 @@ class Build : BuildFinPod {
       "folio            3.0.20+",
       "haystack         3.0.20+",
       "skyarc           3.0.20+",
+      "jobExt           3.0.20+",
     ]
 
     srcDirs = [
       `fan/`,
       `fan/observers/`,
+      `fan/alarmTemplate/`,
+      `fan/jobs/`,
       `test/`
     ]
     resDirs = [
       `lib/`,
       `locale/`,
       `res/`,
+      `res/programTemplates/`,
       `images/`,
     ]
     nodeDirs = [`ts/`]

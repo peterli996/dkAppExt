@@ -16,7 +16,8 @@ src:
       icon: "icon-heart",
       ui: "html",
       order:-899,
-      action: "top.app.LoadApplication('/pod/dkAppExt/index.html', null, null, {app:'dkApp'});top.app.ToggleCollapse(true);"
+      action: "top.app.LoadApplication('/pod/dkAppExt/index.html', null, null, {app:'dkApp'});top.app.ToggleCollapse(true);",
+      keepOpen: true
     }].toGrid
   end
 ---

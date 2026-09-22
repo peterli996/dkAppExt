@@ -1,2 +1,3 @@
-// Example Key
-finExampleExt.testKey=Test Key Translated
+// 键前缀与 pod 名一致（dkAppExt.）；所有键都要在 en.props 里有，作为兜底
+dkAppExt.ext.dis=DK App Ext
+dkAppExt.testKey=Test Key Translated

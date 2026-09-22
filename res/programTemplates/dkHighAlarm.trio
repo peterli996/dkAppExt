@@ -1,0 +1,58 @@
+// 告警程序模板：点值高于 threshold 并持续 alarmDelay 后触发告警
+// 结构参照 finStackMobileExt 自带的 highLimitAlarm；Arg("名字:默认值") 由 AlarmTemplateHandler 在创建时替换
+name:Arg("name")
+description:Raise an alarm if the point value is greater than a threshold
+program:
+  <b t="program">
+    <b t="runCycle" period="normal" dis="main" name="main">
+      <b t="do" name="do" p="do">
+        <b t="set" name="badLimit">
+          <b t="cmpEq">
+            <b t="get" name="threshold" p="a"/>
+            <c p="b">N</c>
+          </b>
+        </b>
+        <b t="set" name="inAlarm">
+          <b t="delayedOutput">
+            <b t="and" p="input">
+              <b t="cmpGt">
+                <b t="get" name="curVal" p="a"/>
+                <b t="get" name="threshold" p="b"/></b>
+              <b t="not">
+                <b t="get" name="badLimit" p="val"/></b>
+            </b>
+            <b t="get" name="alarmDelay" p="delayOn"/>
+            <c p="delayOff">0</c>
+          </b>
+        </b>
+      </b>
+    </b>
+    <b t="runCycle" period="normal" dis="alarm" name="alarm" classType="j2inn.finstack.control.alarming::FINStackAlarmRoutine">
+      <b t="do" name="do" p="do">
+        <b t="alarm" varName="inAlarm" name="inAlarm">
+          <b t="tags" p="tags">
+            <b t="tag" name="alarmText">
+              <b t="strMacro" p="val">
+                <b t="get" name="alarmText" p="val"/></b>
+            </b>
+            <b t="tag" name="instructions">
+              <c p="val">""</c>
+            </b>
+            <b t="tag" name="priority">
+              <b t="get" name="alarmPriority" p="val"/></b>
+          </b>
+        </b>
+      </b>
+    </b>
+  </b>
+programOn:Arg("programOn")
+programVars:
+  ver:"3.0"
+  binding,defVal,kind,name,readTag
+  "id == \$id",,"Number","curVal","curVal"
+  ,Arg("threshold:50"),"Number","threshold",
+  ,F,"Bool","inAlarm",
+  ,Arg("alarmDelay:5"),"Number","alarmDelay",
+  ,Arg("alarmText:Value over threshold"),"Str","alarmText",
+  ,Arg("alarmPriority:150"),"Number","alarmPriority",
+  ,T,"Bool","badLimit",
