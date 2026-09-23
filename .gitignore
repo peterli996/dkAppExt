@@ -10,6 +10,7 @@ Thumbs.db
 
 # Artifacts
 /ts/build/
+/res/app/
 dist/
 
 # Dependencies

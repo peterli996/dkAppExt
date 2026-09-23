@@ -8,10 +8,12 @@ const viewsContext = require.context('../views', true, /\.tsx$/, 'lazy')
 const keyToViewName = (key: string) =>
 	key.replace(/^\.\//, '').replace(/(\/index)?\.tsx$/, '')
 
-const viewNameToKey = new Map(viewsContext.keys().map((key) => [keyToViewName(key), key]))
+const viewNameToKey = new Map(
+	viewsContext.keys().map((key) => [keyToViewName(key), key])
+)
 
 // '/' -> 'Home', '/test' -> 'Test', '/user/list' -> 'User/List'
-const pathToViewName = (path: string) =>{
+const pathToViewName = (path: string) => {
 	return path === '/'
 		? 'Home'
 		: path
@@ -25,6 +27,11 @@ const pathToViewName = (path: string) =>{
 }
 
 export const loadViewByName = (name: string) =>
-	lazy(() => viewsContext(viewNameToKey.get(name)!) as Promise<{ default: ComponentType }>)
+	lazy(
+		() =>
+			viewsContext(viewNameToKey.get(name)!) as Promise<{
+				default: ComponentType
+			}>
+	)
 
 export const loadView = (path: string) => loadViewByName(pathToViewName(path))

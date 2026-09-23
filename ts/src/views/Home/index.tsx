@@ -7,8 +7,10 @@ const Home = () => {
 
 	useEffect(() => {
 		client.ext.eval('readAll(equip and chiller)').then((grid) => {
-			console.log(grid.toString());
-			const chillerList=grid.getRows().map((row)=>row.get('navName')?.toString()??'')
+			console.log(grid.toString())
+			const chillerList = grid
+				.getRows()
+				.map((row) => row.get('navName')?.toString() ?? '')
 			setResult(chillerList.join('\n'))
 		})
 	}, [client])

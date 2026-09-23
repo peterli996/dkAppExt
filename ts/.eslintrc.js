@@ -8,6 +8,7 @@ module.exports = {
 	extends: [
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react/recommended',
+		'plugin:react-hooks/recommended',
 		'plugin:prettier/recommended',
 	],
 	env: {
@@ -16,5 +17,5 @@ module.exports = {
 		node: true,
 		jest: true,
 	},
-	plugins: ['react'],
+	plugins: ['react', 'react-hooks'],
 }

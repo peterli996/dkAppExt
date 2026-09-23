@@ -47,6 +47,10 @@ class Build : BuildFinPod {
       `locale/`,
       `res/`,
       `res/programTemplates/`,
+      // 外部匿名直接访问入口（/pod/dkAppExt/res/app/index.html），见 ts/scripts/syncRes.js
+      `res/app/`,
+      `res/app/assets/`,
+      `res/app/assets/js/`,
       `images/`,
     ]
     nodeDirs = [`ts/`]

@@ -9,12 +9,20 @@ const projectName =
 	getHashParameters().get('projectName') ??
 	undefined
 
+// 路由用 createHashRouter（原因见 router/index.tsx），跟上面 `#projectName=xxx` 抢同一个
+// window.location.hash：projectName 读完后立刻清掉 hash，避免路由把它当成一个不存在的路径匹配到 404。
+if (window.location.hash) {
+	window.history.replaceState(
+		null,
+		'',
+		window.location.pathname + window.location.search
+	)
+}
 
 // console.log('projectName')
 // console.log(getHashParameters().toString())
 // console.log(getHashParameters().get('projectName'))
 // console.log(getHashParameters().get('page'))
-
 
 export const client = new Client({
 	base: new URL(window.location.href),

@@ -16,7 +16,7 @@ const fallback = (
 			height: '100%',
 			minHeight: 200,
 		}}>
-		<Spin size="large" />
+		<Spin size='large' />
 	</div>
 )
 
@@ -24,20 +24,26 @@ export const routes: RouteObject[] = [
 	{
 		path: '/',
 		element: <MainLayout />,
-		children:[
+		children: [
 			...menuList.map(({ path }) => {
-        const View = loadView(path)
-        const element = (
-            <Suspense fallback={fallback}>
-                <View />
-            </Suspense>
-        )
-        return path === '/' ? { index: true, element } : { path, element }
-    }),{
-		path:'*',
-		element: <Suspense fallback={fallback}>
-                <NotFound />
-            </Suspense>
-	}]
+				const View = loadView(path)
+				const element = (
+					<Suspense fallback={fallback}>
+						<View />
+					</Suspense>
+				)
+				return path === '/'
+					? { index: true, element }
+					: { path, element }
+			}),
+			{
+				path: '*',
+				element: (
+					<Suspense fallback={fallback}>
+						<NotFound />
+					</Suspense>
+				),
+			},
+		],
 	},
 ]
