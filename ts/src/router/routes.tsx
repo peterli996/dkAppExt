@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react'
 import { RouteObject } from 'react-router-dom'
 import { Spin } from 'antd'
-import MainLayout from 'layouts/MainLayout'
-import menuList from 'router/menuList'
-import { loadView, loadViewByName } from 'router/loadView'
+import MainLayout from '@/layouts/MainLayout'
+import menuList from '@/router/menuList'
+import { loadView, loadViewByName } from '@/router/loadView'
 
 const NotFound = loadViewByName('NotFound')
 

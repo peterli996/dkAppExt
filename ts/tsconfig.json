@@ -29,7 +29,7 @@
 		// Enable decorators
 		"experimentalDecorators": true,
 
-		"types": ["jest","webpack-env"],
+		"types": ["vitest/globals", "vite/client"],
 		// interfaces and type .d.ts files in these directories will be available everywhere
 		"typeRoots": ["src/types", "src/declarations", "node_modules/@types"],
 		//	skip type checking of declaration files
@@ -43,11 +43,6 @@
 		"sourceMap": true,
 		"forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */
 	},
-
-	"files": [
-		"node_modules/@j2inn/react-config/globals.d.ts",
-		"node_modules/@j2inn/react-config/externals.d.ts"
-	],
 
 	"include": ["src/**/*", "test/**/*"],
 

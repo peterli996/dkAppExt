@@ -1,15 +1,17 @@
 //根据path首字母大写转换后，懒加载自动匹配对应的view
 import { lazy, ComponentType } from 'react'
 
-// 构建时扫描 views/ 下所有 .tsx 文件，'lazy' 模式让每个文件仍然各自分包（等价于逐个 import()）
-const viewsContext = require.context('../views', true, /\.tsx$/, 'lazy')
+// 构建时扫描 views/ 下所有 .tsx 文件，每个文件各自分包（import.meta.glob 天然懒加载，等价于逐个 import()）
+const viewModules = import.meta.glob<{ default: ComponentType }>(
+	'../views/**/*.tsx'
+)
 
-// './Home/index.tsx' -> 'Home'，'./NotFound/index.tsx' -> 'NotFound'，'./User/List/index.tsx' -> 'User/List'
+// '../views/Home/index.tsx' -> 'Home'，'../views/User/List/index.tsx' -> 'User/List'
 const keyToViewName = (key: string) =>
-	key.replace(/^\.\//, '').replace(/(\/index)?\.tsx$/, '')
+	key.replace(/^\.\.\/views\//, '').replace(/(\/index)?\.tsx$/, '')
 
 const viewNameToKey = new Map(
-	viewsContext.keys().map((key) => [keyToViewName(key), key])
+	Object.keys(viewModules).map((key) => [keyToViewName(key), key])
 )
 
 // '/' -> 'Home', '/test' -> 'Test', '/user/list' -> 'User/List'
@@ -27,11 +29,6 @@ const pathToViewName = (path: string) => {
 }
 
 export const loadViewByName = (name: string) =>
-	lazy(
-		() =>
-			viewsContext(viewNameToKey.get(name)!) as Promise<{
-				default: ComponentType
-			}>
-	)
+	lazy(() => viewModules[viewNameToKey.get(name)!]())
 
 export const loadView = (path: string) => loadViewByName(pathToViewName(path))

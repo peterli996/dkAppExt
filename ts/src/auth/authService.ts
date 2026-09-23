@@ -1,5 +1,5 @@
-import { scramLogin } from 'auth/scram'
-import { client } from 'client'
+import { scramLogin } from '@/auth/scram'
+import { client } from '@/client'
 
 export type AuthState = 'unknown' | 'guest' | 'authed'
 

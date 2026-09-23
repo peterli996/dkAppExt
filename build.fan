@@ -48,9 +48,9 @@ class Build : BuildFinPod {
       `res/`,
       `res/programTemplates/`,
       // 外部匿名直接访问入口（/pod/dkAppExt/res/app/index.html），见 ts/scripts/syncRes.js
+      // Vite 产物统一放在单一 assets/ 目录下（不再有 webpack 时代的 assets/js/ 嵌套）
       `res/app/`,
       `res/app/assets/`,
-      `res/app/assets/js/`,
       `images/`,
     ]
     nodeDirs = [`ts/`]

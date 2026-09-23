@@ -3,11 +3,11 @@ import { RouterProvider } from 'react-router-dom'
 import { ClientContext } from 'haystack-react'
 import { I18NProvider } from '@j2inn/utils'
 import { fin5Top } from '@j2inn/fin5-ui-utils/dist/fin5Top/fin5Top'
-import { client } from 'client'
-import { router } from 'router'
-import { checkSession, AuthState } from 'auth/authService'
-import { loadFinstack, isEmbeddedInFin } from 'finstack'
-import Login from 'views/Login'
+import { client } from '@/client'
+import { router } from '@/router'
+import { checkSession, AuthState } from '@/auth/authService'
+import { loadFinstack, isEmbeddedInFin } from '@/finstack'
+import Login from '@/views/Login'
 
 // 内嵌在 FIN 里时 fin5Top 读的是 window.top（FIN 自己已登录的外层窗口），
 // 立即加载不受影响；外部直接访问时必须等确认已登录（session 已建立）再加载，

@@ -10,7 +10,7 @@ import {
 	sha256,
 	str2rstrUtf8,
 	xor,
-} from 'auth/finCrypto'
+} from '@/auth/finCrypto'
 
 const AUTH_URI = '/user/auth'
 

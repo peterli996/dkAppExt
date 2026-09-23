@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Alert, Button, Form, Input } from 'antd'
-import { login } from 'auth/authService'
-import background from 'images/background.png'
-import styles from 'views/Login/index.module.less'
+import { login } from '@/auth/authService'
+import background from '@/images/background.png'
+import styles from '@/views/Login/index.module.css'
 
 const whiteLabel = (text: string) => (
 	<span className={styles.whiteLabel}>{text}</span>

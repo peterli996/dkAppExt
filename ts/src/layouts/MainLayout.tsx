@@ -4,10 +4,10 @@ import { Layout, Menu, Dropdown } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 import { useClient } from 'haystack-react'
-import logo from 'images/logo.png'
-import menuList from 'router/menuList'
-import { logout } from 'auth/authService'
-import styles from 'layouts/MainLayout.module.less'
+import logo from '@/images/logo.png'
+import menuList from '@/router/menuList'
+import { logout } from '@/auth/authService'
+import styles from '@/layouts/MainLayout.module.css'
 
 const { Header, Sider, Content } = Layout
 

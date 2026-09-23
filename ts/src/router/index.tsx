@@ -1,5 +1,5 @@
 import { createHashRouter } from 'react-router-dom'
-import { routes } from 'router/routes'
+import { routes } from '@/router/routes'
 
 // /pod/ 是纯静态文件服务，没有 SPA fallback/rewrite：用 createBrowserRouter 时，
 // 跳到子路由后地址栏会变成 /pod/<podName>/<route>（丢了 index.html），刷新直接 404。

@@ -1,4 +1,4 @@
-import { sha256, hmacSha256, pbkdf2HmacSha256, rstr2hex, rstr2b64uri, str2rstrUtf8 } from 'auth/finCrypto'
+import { sha256, hmacSha256, pbkdf2HmacSha256, rstr2hex, rstr2b64uri, str2rstrUtf8 } from '@/auth/finCrypto'
 
 // 官方标准测试向量，用来验证从 FIN 原生登录页 login.js 照搬过来的手写 SHA-256/HMAC/PBKDF2 实现字节级正确。
 describe('finCrypto', () => {
